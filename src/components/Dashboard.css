@@ -1,0 +1,87 @@
+.dashboard-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 2rem 5%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 1.5rem;
+  grid-template-areas: 
+    "hero hero progress"
+    "tasks categories progress"
+    "add-task modes quick-actions";
+}
+
+@media (max-width: 1024px) {
+  .dashboard-container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+      "hero hero"
+      "progress progress"
+      "tasks categories"
+      "add-task modes"
+      "quick-actions quick-actions";
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      "hero"
+      "progress"
+      "tasks"
+      "categories"
+      "modes"
+      "quick-actions"
+      "add-task";
+  }
+}
+
+/* Specific Grid Items */
+.card-hero { grid-area: hero; background: transparent !important; box-shadow: none !important; border: none !important; backdrop-filter: none !important; padding-left: 0; padding-top: 1rem; }
+.card-progress { grid-area: progress; background: var(--dark-card-bg); color: var(--dark-card-text); display: flex; flex-direction: column; justify-content: space-between; padding: 2rem; }
+.card-tasks { grid-area: tasks; padding: 1.5rem; }
+.card-categories { grid-area: categories; padding: 1.5rem; }
+.card-add-task { grid-area: add-task; background: var(--dark-card-bg); color: var(--dark-card-text); padding: 1.5rem; }
+.card-modes { grid-area: modes; padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; }
+.card-quick-actions { grid-area: quick-actions; padding: 1.5rem; }
+
+/* Hero styling */
+.hero-title { font-size: 3.5rem; font-weight: 700; line-height: 1.1; margin-bottom: 1rem; }
+.hero-subtitle { font-size: 1.1rem; opacity: 0.8; margin-bottom: 2rem; }
+.hero-actions { display: flex; gap: 1rem; }
+
+/* General widget headers */
+.widget-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; font-weight: 600; font-size: 1.1rem; }
+.widget-header span.dots { opacity: 0.5; padding: 0.2rem 0.5rem; border-radius: 4px; background: rgba(0,0,0,0.05); cursor: pointer; }
+
+/* Tasks Widget */
+.task-item { display: flex; align-items: center; justify-content: space-between; padding: 0.8rem 0; border-bottom: 1px solid rgba(0,0,0,0.05); font-size: 0.95rem; }
+.task-item:last-child { border-bottom: none; }
+.task-left { display: flex; align-items: center; gap: 0.8rem; cursor: pointer; }
+.task-duration { font-size: 0.85rem; opacity: 0.6; }
+
+/* Category Widget */
+.cat-item { display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
+.cat-item:last-child { border-bottom: none; }
+.cat-left { display: flex; align-items: center; gap: 0.8rem; font-size: 0.95rem; font-weight: 500; }
+.cat-icon { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 8px; color: white; }
+.cat-count { font-size: 0.85rem; opacity: 0.6; }
+
+/* Modes Widget */
+.modes-pill-group { display: flex; background: rgba(0,0,0,0.05); border-radius: 999px; padding: 0.3rem; margin-top: 1rem; }
+.mode-btn { flex: 1; padding: 0.5rem; text-align: center; border-radius: 999px; font-size: 0.9rem; cursor: pointer; transition: background 0.3s; font-weight: 500; }
+.mode-btn.active { background: var(--dark-card-bg); color: white; }
+
+/* Quick Actions Widget */
+.qa-item { display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.3); padding: 0.8rem 1rem; border-radius: 999px; margin-bottom: 0.8rem; cursor: pointer; transition: transform 0.2s; font-size: 0.95rem; font-weight: 500; }
+.qa-item:hover { transform: translateX(5px); background: rgba(255,255,255,0.5); }
+.qa-icon-wrap { background: var(--dark-card-bg); color: white; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; border-radius: 50%; }
+
+/* Add Task Form inside dark card */
+.dark-form-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+.dark-input { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: 999px; padding: 0.8rem 1.2rem; outline: none; font-family: inherit; font-size: 0.9rem; }
+.dark-input::placeholder { color: rgba(255,255,255,0.6); }
+.add-task-btn-full { width: 100%; background: rgba(255,255,255,0.9); color: var(--text-color); font-weight: 600; padding: 0.8rem; border-radius: 999px; border: none; cursor: pointer; transition: transform 0.2s; }
+.add-task-btn-full:hover { transform: translateY(-2px); background: white; }
